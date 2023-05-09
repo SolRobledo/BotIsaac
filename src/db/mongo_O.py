@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 class Mongo:
     def __init__(self):
         load_dotenv()
-        self.user: str = os.getenv("USER")
+        self.user: str = os.getenv("DB_USER")
         self.password: str = os.getenv("PASSWORD")
         self.ip: str = os.getenv("IP")
         self.port: str = os.getenv("PORT")

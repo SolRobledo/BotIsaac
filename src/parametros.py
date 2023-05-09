@@ -10,6 +10,7 @@ class Types(str, Enum):
     PILL = "Pill"
     PICKUP = "Pickup"
     TRANSFORMATION = "Transformation"
+    ACHIEVEMENT = "Achievement"
 
 
 @dataclass
@@ -72,3 +73,11 @@ class PickUrl:
     type: Types
     url: str
     name: str
+
+@dataclass()
+class Achievement:
+    secret_number: int
+    unlock: str
+    name: str
+    description: Optional[str]
+    type: Types

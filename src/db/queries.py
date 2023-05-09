@@ -17,6 +17,14 @@ class Queries:
         else:
             return data
 
+    def get_achievement(self, param: str, type_: Types) -> Optional[dict]:
+        query: dict = {"name": re.compile(f"^{param}$", re.IGNORECASE), "type": re.compile(type_, re.IGNORECASE)}
+        data: dict = self.mongo.db["Achievements"].find_one(query)
+        if not data:
+            return None
+        else:
+            return data
+
     def get_card(self, param: str, type_: Types) -> Optional[dict]:
         query: dict = {"name": re.compile(param, re.IGNORECASE), "type": re.compile(type_, re.IGNORECASE)}
         data: dict = self.mongo.db["AllItems"].find_one(query)
