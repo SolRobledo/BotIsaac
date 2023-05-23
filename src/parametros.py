@@ -11,6 +11,7 @@ class Types(str, Enum):
     PICKUP = "Pickup"
     TRANSFORMATION = "Transformation"
     ACHIEVEMENT = "Achievement"
+    CHARACTER = "Character"
 
 
 @dataclass
@@ -81,3 +82,18 @@ class Achievement:
     name: str
     description: Optional[str]
     type: Types
+
+@dataclass()
+class Character:
+    link: str
+    name: str
+    health: dict
+    damage: str
+    tears: str
+    shot_speed: str
+    range_: str
+    speed: str
+    luck: str
+    items: list
+    unlock: str
+    type_: Types

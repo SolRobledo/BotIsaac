@@ -73,6 +73,14 @@ class Queries:
         else:
             return data
 
+    def get_character(self, param: str, type_: Types) -> Optional[dict]:
+        query: dict = {"name": re.compile(f"^{param}$", re.IGNORECASE), "type_": type_}
+        data: dict = self.mongo.db["Characters"].find_one(query)
+        if not data:
+            return None
+        else:
+            return data
+
 
 if __name__ == '__main__':
     ola = Queries()
