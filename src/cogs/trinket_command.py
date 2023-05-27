@@ -13,7 +13,7 @@ class TrinketCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="trinket")
+    @commands.command(name="trinket", aliases=["tk"])
     async def trinket_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list[str] = message.split(" ")

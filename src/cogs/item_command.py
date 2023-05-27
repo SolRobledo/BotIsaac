@@ -13,7 +13,7 @@ class ItemCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="item")
+    @commands.command(name="item", aliases=["i"])
     async def item_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list = message.split(" ")

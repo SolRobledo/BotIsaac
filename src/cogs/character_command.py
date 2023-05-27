@@ -12,12 +12,13 @@ class CharacterCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="char")
+    @commands.command(name="character", aliases=["char"])
     async def characters_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list = message.strip().split(" ")
         char_name: str = " ".join(message_l[1:]).strip()
         character: Optional[dict] = self.query.get_character(char_name, type_=Types.CHARACTER)
+        print(character)
         if character is None:
             embed_e: discord.Embed = discord.Embed(title="There has been an error", description="The character you are looking for doesn't exist D: srry", colour=discord.Color.dark_red())
             await ctx.send(embed=embed_e)

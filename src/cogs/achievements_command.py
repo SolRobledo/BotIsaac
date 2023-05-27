@@ -12,7 +12,7 @@ class AchievementCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="a")
+    @commands.command(name="achievement", aliases=["a"])
     async def challenges_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list = message.split(" ")

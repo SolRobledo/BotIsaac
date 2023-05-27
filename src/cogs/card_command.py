@@ -13,7 +13,7 @@ class CardCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="card")
+    @commands.command(name="card", aliases=["c"])
     async def card_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list[str] = message.split(" ")

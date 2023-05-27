@@ -13,7 +13,7 @@ class FindCommand(commands.Cog):
         self.bot = bot
         self.query = Queries()
 
-    @commands.command(name="find")
+    @commands.command(name="find", aliases=["f", ""])
     async def card_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list[str] = message.split(" ")
@@ -24,9 +24,16 @@ class FindCommand(commands.Cog):
             await ctx.send(embed=embed_e)
 
         else:
+            item_c = 0
             for item in items:
-                embed: discord.Embed = self.sorting_hat(item)
-                await ctx.send(embed=embed)
+                if item_c < 10:
+                    item_c += 1
+                    embed: discord.Embed = self.sorting_hat(item)
+                    await ctx.send(embed=embed)
+                elif item_c >= 10:
+                    embed_e: discord.Embed = discord.Embed(title="Srry :C", description="With this command you can only see 10 items, the parameter is in to many items.", colour=discord.Color.dark_red())
+                    await ctx.send(embed=embed_e)
+                    break
 
     def sorting_hat(self, item: dict) -> discord.Embed:
         item_type: Types = item.get("type")

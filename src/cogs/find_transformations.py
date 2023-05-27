@@ -13,7 +13,7 @@ class FindTransformations(commands.Cog):
         self.bot = bot
         self.query = Queries()
 
-    @commands.command(name="t")
+    @commands.command(name="transformation", aliases=["t"])
     async def find_transformations_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list = message.split(" ")

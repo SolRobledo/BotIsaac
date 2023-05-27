@@ -20,6 +20,7 @@ async def load_extensions(bot_):
 async def main():
     intents: discord.Intents = discord.Intents.all()
     bot_: Bot = commands.Bot(command_prefix=get_prefix, intents=intents)
+    bot_.remove_command('help')
     async with bot_:
         await load_extensions(bot_)
         load_dotenv()

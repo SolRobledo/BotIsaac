@@ -13,7 +13,7 @@ class TransformationsCommand(commands.Cog):
         self.bot = bot
         self.query = Queries()
 
-    @commands.command(name="transformations")
+    @commands.command(name="transformations", aliases=["ts"])
     async def transformations_command(self, ctx: Context):
         transformation_l: list[dict] = self.query.get_transformations()
 

@@ -13,7 +13,7 @@ class PickupCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="pickup")
+    @commands.command(name="pickup", aliases=["p"])
     async def pickup_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list[str] = message.split(" ")

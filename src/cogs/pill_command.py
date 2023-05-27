@@ -13,7 +13,7 @@ class PillCommand(commands.Cog):
         self.bot = bot
         self.query: Queries = Queries()
 
-    @commands.command(name="pill")
+    @commands.command(name="pill", aliases=["pi"])
     async def pill_command(self, ctx: Context):
         message: str = ctx.message.content
         message_l: list[str] = message.split(" ")
