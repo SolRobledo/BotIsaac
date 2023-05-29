@@ -55,8 +55,8 @@ class CharacterCommand(commands.Cog):
             if type(health) == str:
                 embed_a.add_field(name="*Health:* ", value=health, inline=True)
             else:
-                for key in health:
-                    health_f += "\n" + key
+                for key, value in health.items():
+                    health_f += f"\n{key}: {value}"
                 embed_a.add_field(name="*Health:* ", value=health_f.strip(), inline=True)
 
             await ctx.send(embed=embed_a)
